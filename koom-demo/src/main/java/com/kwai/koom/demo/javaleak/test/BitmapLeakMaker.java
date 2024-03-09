@@ -20,12 +20,14 @@ package com.kwai.koom.demo.javaleak.test;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 public class BitmapLeakMaker extends LeakMaker<Bitmap> {
-
+  private static final String TAG = "BitmapLeakMaker";
   @Override
   public void startLeak(Context context) {
     Bitmap bitmap = Bitmap.createBitmap(1920, 1080, Bitmap.Config.ARGB_8888);
     uselessObjectList.add(bitmap);
+    Log.d(TAG, "startLeak: uselessObjectList = " + uselessObjectList.size());
   }
 }

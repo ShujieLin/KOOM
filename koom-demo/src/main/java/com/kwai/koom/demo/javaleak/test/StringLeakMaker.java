@@ -1,6 +1,7 @@
 package com.kwai.koom.demo.javaleak.test;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.kwai.koom.demo.javaleak.test.LeakMaker;
 
@@ -22,10 +23,11 @@ import com.kwai.koom.demo.javaleak.test.LeakMaker;
  * @author Rui Li <lirui05@kuaishou.com>
  */
 public class StringLeakMaker extends LeakMaker<String> {
-
+  private static final String TAG = "StringLeakMaker";
   @Override
   void startLeak(Context context) {
     String largeStr = new String(new byte[512 * 1024]);
     uselessObjectList.add(largeStr);
+    Log.d(TAG, "startLeak: uselessObjectList = " + uselessObjectList.size());
   }
 }

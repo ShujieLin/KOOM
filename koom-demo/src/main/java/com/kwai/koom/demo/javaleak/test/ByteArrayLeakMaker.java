@@ -19,12 +19,14 @@
 package com.kwai.koom.demo.javaleak.test;
 
 import android.content.Context;
+import android.util.Log;
 
 public class ByteArrayLeakMaker extends LeakMaker<ByteArrayLeakMaker.ByteArrayHolder> {
-
+  private static final String TAG = "ByteArrayLeakMaker";
   @Override
   public void startLeak(Context context) {
     uselessObjectList.add(new ByteArrayHolder());
+    Log.d(TAG, "startLeak: uselessObjectList = " + uselessObjectList.size());
   }
 
   public static class ByteArrayHolder {

@@ -24,14 +24,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ActivityLeakMaker extends LeakMaker<Activity> {
-
+  private static final String TAG = "ActivityLeakMaker";
   @Override
   public void startLeak(Context context) {
     LeakedActivity.setUselessObjectList(uselessObjectList);
+    Log.d(TAG, "startLeak: uselessObjectList = " + uselessObjectList.size());
     Intent intent = new Intent(context, LeakedActivity.class);
     context.startActivity(intent);
   }
