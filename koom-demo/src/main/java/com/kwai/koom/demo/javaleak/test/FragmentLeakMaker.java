@@ -19,12 +19,14 @@
 package com.kwai.koom.demo.javaleak.test;
 
 import android.content.Context;
+import android.util.Log;
+
 import androidx.fragment.app.Fragment;
 
 public class FragmentLeakMaker extends LeakMaker<Fragment> {
-
+  private static final String TAG = "FragmentLeakMaker";
   @Override
   void startLeak(Context context) {
-
+    Log.d(TAG, "startLeak: uselessObjectList = " + uselessObjectList.size());
   }
 }
