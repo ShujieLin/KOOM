@@ -47,8 +47,9 @@ buildscript {
         }
         maven {
             url 'https://maven.google.com'
-        }
+            }
         google()
+        maven { url 'https://github.com' }
     }
     dependencies {
         classpath 'com.novoda:bintray-release:0.9'
